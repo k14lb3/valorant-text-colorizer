@@ -11,51 +11,53 @@ const Home = () => {
   const generateText = () => {
     let text = textRef.current.value;
     let outputText = '';
-    let coloredText = '';
-    let colored = false;
-    let color = false;
+    let colored = { state: false, input: '' };
+    let color = { state: false, input: '' };
 
     for (let i = 0; i < text.length; i++) {
-      if (colored) {
-        if (color) {
-          let tag = '';
+      if (colored.state) {
+        if (color.state) {
+          if (text[i] === ')') {
+            let tag = '';
 
-          switch (text[i].toLowerCase()) {
-            case 'r':
-              tag = '<enemy>';
-              break;
-            case 'b':
-              tag = '<team>';
-              break;
-            case 'y':
-              tag = '<system>';
-              break;
-            case 'g':
-              tag = '<notification>';
-              break;
-            case 'p':
-              tag = '<warning>';
-              break;
-            case ')':
-              color = false;
-              colored = false;
-              outputText += `${coloredText}</>`;
-              coloredText = '';
-            case ' ':
-              break;
-            default:
-              return;
+            switch (color.input.trim()) {
+              case 'r':
+                tag = '<enemy>';
+                break;
+              case 'b':
+                tag = '<team>';
+                break;
+              case 'y':
+                tag = '<system>';
+                break;
+              case 'g':
+                tag = '<notification>';
+                break;
+              case 'p':
+                tag = '<warning>';
+                break;
+              default:
+                return;
+            }
+
+            outputText += `${tag}${colored.input}</>`;
+
+            colored.state = false;
+            colored.input = '';
+            color.state = false;
+            color.input = '';
+          } else {
+            color.input += text[i];
           }
-          coloredText = `${tag}${coloredText}`;
         } else {
           if (text[i] === ',') {
-            color = true;
+            color.state = true;
           } else {
-            coloredText += text[i];
+            colored.input += text[i];
           }
         }
       } else if (text[i] === '(') {
-        colored = true;
+        colored.state = true;
       } else {
         outputText += text[i];
       }
