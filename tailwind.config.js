@@ -40,6 +40,7 @@ module.exports = {
   plugins: [
     plugin(function ({ addBase, theme }) {
       addBase({
+        body: { fontFamily: theme('fontFamily.roboto') },
         h1: {
           fontFamily: theme('fontFamily.openSans'),
           fontSize: theme('fontSize.4xl'),
