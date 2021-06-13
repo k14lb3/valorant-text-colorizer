@@ -7,7 +7,58 @@ import Button from 'components/Button';
 const Home = () => {
   const textRef = useRef();
 
-  const generateText = () => {};
+  const generateText = () => {
+    let outputText = '';
+    let coloredText = '';
+    let colored = false;
+    let color = false;
+
+    for (let c of textRef.current.value) {
+      if (c === '(') {
+        colored = true;
+      } else if (colored) {
+        if (color) {
+          let tag = '';
+
+          switch (c) {
+            case 'r':
+              tag = '<enemy>';
+              break;
+            case 'b':
+              tag = '<team>';
+              break;
+            case 'y':
+              tag = '<system>';
+              break;
+            case 'g':
+              tag = '<notification>';
+              break;
+            case 'p':
+              tag = '<warning>';
+              break;
+            case ')':
+              color = false;
+              colored = false;
+              outputText += `${coloredText}</>`;
+              coloredText = '';
+            case ' ':
+              break;
+            default:
+              return;
+          }
+          coloredText = `${tag}${coloredText}`;
+        } else {
+          if (c === ',') {
+            color = true;
+          } else {
+            coloredText += c;
+          }
+        }
+      } else {
+        outputText += c;
+      }
+    }
+  };
 
   return (
     <>
