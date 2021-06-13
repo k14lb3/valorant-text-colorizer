@@ -4,7 +4,7 @@ const Layout = ({ children }) => {
       <header className="py-4 px-8 bg-black border-b border-red">
         <h1 className="text-red">Valorant Text Colorizer</h1>
       </header>
-      <main className="h-full bg-pampas">{children}</main>
+      <main className="h-full bg-pampas pt-5">{children}</main>
     </div>
   );
 };
