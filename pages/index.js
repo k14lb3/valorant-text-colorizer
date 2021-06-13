@@ -40,6 +40,7 @@ const Home = () => {
                 tag = '<warning>';
                 break;
               default:
+                setPopupNotification('Cannot generate text');
                 return;
             }
 
