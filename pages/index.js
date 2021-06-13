@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Head from 'next/head';
 import Label from 'components/Label';
 import InputText from 'components/InputText';
@@ -81,11 +82,13 @@ const Home = () => {
             <Label className="pt-5 my-5 border-t-2 border-black">
               Generated text
             </Label>
-            <div className="p-4 bg-pampas">
-              <p style={{ whiteSpace: 'break-spaces' }} className="text-2xl">
-                {generatedText}
-              </p>
-            </div>
+            <CopyToClipboard text={generatedText}>
+              <div className="p-4 bg-pampas cursor-pointer">
+                <p style={{ whiteSpace: 'break-spaces' }} className="text-2xl">
+                  {generatedText}
+                </p>
+              </div>
+            </CopyToClipboard>
           </>
         )}
       </div>
