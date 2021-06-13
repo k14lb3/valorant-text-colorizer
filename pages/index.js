@@ -65,6 +65,7 @@ const Home = () => {
         outputText += text[i];
       }
       setGeneratedText(outputText);
+      setPopupNotification('Text generated');
     }
   };
 
