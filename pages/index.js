@@ -9,19 +9,20 @@ const Home = () => {
   const [generatedText, setGeneratedText] = useState('');
 
   const generateText = () => {
+    const text = textRef.current.value;
     let outputText = '';
     let coloredText = '';
     let colored = false;
     let color = false;
 
-    for (let c of textRef.current.value) {
-      if (c === '(') {
+    for (let i = 0; i < text.length; i++) {
+      if (text[i] === '(') {
         colored = true;
       } else if (colored) {
         if (color) {
           let tag = '';
 
-          switch (c) {
+          switch (text[i]) {
             case 'r':
               tag = '<enemy>';
               break;
@@ -49,15 +50,17 @@ const Home = () => {
           }
           coloredText = `${tag}${coloredText}`;
         } else {
-          if (c === ',') {
+          if (text[i] === ',') {
             color = true;
           } else {
-            coloredText += c;
+            coloredText += text[i];
           }
         }
       } else {
-        outputText += c;
+        outputText += text[i];
       }
+
+      setGeneratedText(outputText);
     }
   };
 
@@ -72,6 +75,16 @@ const Home = () => {
         <Button className="w-1/2 mx-auto" onClick={generateText}>
           Generate
         </Button>
+        {generatedText && (
+          <>
+            <Label className="pt-5 my-5 border-t-2 border-black">
+              Generated text
+            </Label>
+            <div className="p-4 bg-pampas">
+              <p className="text-2xl">{generatedText}</p>
+            </div>
+          </>
+        )}
       </div>
     </>
   );
