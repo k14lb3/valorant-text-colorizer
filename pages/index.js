@@ -61,7 +61,6 @@ const Home = () => {
       } else {
         outputText += text[i];
       }
-
       setGeneratedText(outputText);
     }
   };
@@ -83,7 +82,9 @@ const Home = () => {
               Generated text
             </Label>
             <div className="p-4 bg-pampas">
-              <p className="text-2xl">{generatedText}</p>
+              <p style={{ whiteSpace: 'break-spaces' }} className="text-2xl">
+                {generatedText}
+              </p>
             </div>
           </>
         )}
