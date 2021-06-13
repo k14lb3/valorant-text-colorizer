@@ -9,17 +9,18 @@ const Home = () => {
   const [generatedText, setGeneratedText] = useState('');
 
   const generateText = () => {
+    let text = textRef.current.value;
     let outputText = '';
     let coloredText = '';
     let colored = false;
     let color = false;
 
-    for (let c of textRef.current.value) {
+    for (let i = 0; i < text.length; i++) {
       if (colored) {
         if (color) {
           let tag = '';
 
-          switch (c.toLowerCase()) {
+          switch (text[i].toLowerCase()) {
             case 'r':
               tag = '<enemy>';
               break;
@@ -47,16 +48,16 @@ const Home = () => {
           }
           coloredText = `${tag}${coloredText}`;
         } else {
-          if (c === ',') {
+          if (text[i] === ',') {
             color = true;
           } else {
-            coloredText += c;
+            coloredText += text[i];
           }
         }
-      } else if (c === '(') {
+      } else if (text[i] === '(') {
         colored = true;
       } else {
-        outputText += c;
+        outputText += text[i];
       }
 
       setGeneratedText(outputText);
