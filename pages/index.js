@@ -19,7 +19,7 @@ const Home = () => {
         if (color) {
           let tag = '';
 
-          switch (c) {
+          switch (c.toLowerCase()) {
             case 'r':
               tag = '<enemy>';
               break;
