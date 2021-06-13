@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useState, useRef } from 'react';
 import Head from 'next/head';
 import Label from 'components/Label';
 import InputText from 'components/InputText';
@@ -6,6 +6,7 @@ import Button from 'components/Button';
 
 const Home = () => {
   const textRef = useRef();
+  const [generatedText, setGeneratedText] = useState('');
 
   const generateText = () => {
     let outputText = '';
