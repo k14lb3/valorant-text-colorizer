@@ -83,7 +83,10 @@ const Home = () => {
               Generated text
             </Label>
             <CopyToClipboard text={generatedText}>
-              <div className="p-4 bg-pampas cursor-pointer border-2 border-pampas rounded hover:border-red duration-200">
+              <div className="group relative p-4 bg-pampas cursor-pointer border-2 border-pampas rounded hover:border-red duration-200">
+                <div className="opacity-0 absolute py-2 px-4 top-full left-3/4 bg-red rounded text-pampas text-xl duration-200 group-hover:opacity-100 group-hover:mt-5">
+                  Click to copy
+                </div>
                 <p style={{ whiteSpace: 'break-spaces' }} className="text-2xl">
                   {generatedText}
                 </p>
