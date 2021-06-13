@@ -70,5 +70,16 @@ module.exports = {
         },
       });
     }),
+    plugin(function ({ addUtilities }) {
+      const newUtilities = {
+        '.w-full-1\\/4': {
+          width: '125%',
+        },
+        '.-left-full-1\\/4': {
+          left: '-125%',
+        },
+      };
+      addUtilities(newUtilities);
+    }),
   ],
 };
