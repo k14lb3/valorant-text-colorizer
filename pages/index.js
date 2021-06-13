@@ -8,7 +8,7 @@ import Button from 'components/Button';
 const Home = () => {
   const textRef = useRef();
   const [generatedText, setGeneratedText] = useState('');
-  const [copied, setCopied] = useState(false)
+  const [notification, setNotification] = useState('')
 
   const generateText = () => {
     let text = textRef.current.value;
