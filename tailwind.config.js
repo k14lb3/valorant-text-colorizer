@@ -78,11 +78,8 @@ module.exports = {
         '.-left-full-1\\/4': {
           left: '-125%',
         },
-        '.w-144': {
-          width: '30rem',
-        },
-        '.w-192': {
-          width: '48rem',
+        '.max-w-168': {
+          maxWidth: '39rem',
         },
       };
       addUtilities(newUtilities);
