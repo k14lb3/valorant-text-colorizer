@@ -8,7 +8,7 @@ import PopupNotification from 'components/PopupNotification';
 
 const Home = () => {
   const textRef = useRef();
-  const [generatedText, setGeneratedText] = useState('');
+  const [generatedText, setGeneratedText] = useState('<team>Hello</>');
   const [popupNotification, setPopupNotification] = useState('');
 
   const generateText = () => {
@@ -130,7 +130,11 @@ const Home = () => {
           </div>
           <div className="flex flex-col w-full py-8 px-12 pb-9 mx-auto border-2 border-black bg-white rounded">
             <h2 className="pb-5 mb-5 border-b-2 border-black">Input text</h2>
-            <InputText ref={textRef} className="w-full mb-5" />
+            <InputText
+              ref={textRef}
+              defaultValue="(Hello, b)"
+              className="w-full mb-5"
+            />
             <Button className="w-full lg:w-2/4 mx-auto" onClick={generateText}>
               Generate
             </Button>
