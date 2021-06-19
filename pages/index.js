@@ -133,31 +133,22 @@ const Home = () => {
           <Button className="w-full lg:w-2/4 mx-auto" onClick={generateText}>
             Generate
           </Button>
-          {generatedText && (
-            <>
-              <h2 className="pb-5 my-5 border-b-2 border-black">
-                Generated text
-              </h2>
-              <CopyToClipboard
-                text={generatedText}
-                onCopy={() => {
-                  setPopupNotification('Text copied');
-                }}
-              >
-                <div className="group relative p-4 bg-pampas cursor-pointer border-2 border-pampas rounded hover:border-red duration-200">
-                  <div className="opacity-0 absolute py-2 px-4 top-0 left-2/4 bg-red rounded text-pampas text-xl whitespace-nowrap duration-200 group-hover:opacity-100 group-hover:-top-full">
-                    Click to copy
-                  </div>
-                  <p
-                    style={{ whiteSpace: 'break-spaces' }}
-                    className="text-2xl"
-                  >
-                    {generatedText}
-                  </p>
-                </div>
-              </CopyToClipboard>
-            </>
-          )}
+          <h2 className="pb-5 my-5 border-b-2 border-black">Generated text</h2>
+          <CopyToClipboard
+            text={generatedText}
+            onCopy={() => {
+              setPopupNotification('Text copied');
+            }}
+          >
+            <div className="group relative p-4 bg-pampas cursor-pointer border-2 border-pampas rounded hover:border-red duration-200">
+              <div className="opacity-0 absolute py-2 px-4 top-0 left-2/4 bg-red rounded text-pampas text-xl whitespace-nowrap duration-200 group-hover:opacity-100 group-hover:-top-full">
+                Click to copy
+              </div>
+              <p style={{ whiteSpace: 'break-spaces' }} className="text-2xl">
+                {generatedText}
+              </p>
+            </div>
+          </CopyToClipboard>
         </div>
       </div>
     </>
