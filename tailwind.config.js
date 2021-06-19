@@ -28,6 +28,21 @@ module.exports = {
       red: {
         DEFAULT: '#ff4655',
       },
+      chatRed: {
+        DEFAULT: '#ff4655',
+      },
+      chatBlue: {
+        DEFAULT: '#99c4d8',
+      },
+      chatYellow: {
+        DEFAULT: '#ffe185',
+      },
+      chatGreen: {
+        DEFAULT: '#6ef298',
+      },
+      chatPink: {
+        DEFAULT: '#ff9ff8',
+      },
       ebony: {
         DEFAULT: '#0F1923',
       },
